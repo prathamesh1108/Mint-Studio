@@ -190,31 +190,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-16 bg-neutral-50">
-        <div className="container-custom">
-          <h2 className="text-center mb-12">What Our Clients Say</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {[
-              {
-                quote:
-                  "Mint Studio transformed our home beyond our expectations. Their attention to detail and understanding of our style was impressive.",
-                author: "Emma R., Homeowner",
-              },
-              {
-                quote:
-                  "Working with Mint Studio for our office redesign was a seamless experience. They created a space that perfectly balances functionality and aesthetics.",
-                author: "David L., Business Owner",
-              },
-            ].map((testimonial, index) => (
-              <div key={index} className="p-6 bg-white rounded-lg shadow-sm">
-                <p className="italic mb-4">{testimonial.quote}</p>
-                <p className="font-medium">— {testimonial.author}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+    
 
       {/* Contact CTA */}
       <section className="py-16 bg-neutral-800 text-white">
