@@ -174,22 +174,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Video Showcase */}
-      <section className="py-16 bg-white">
-        <div className="container-custom">
-          <h2 className="text-center mb-12">See Our Work in Action</h2>
-          <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-lg mx-auto max-w-4xl">
-            <iframe 
-              src="https://www.youtube.com/embed/8JTkUdHi4oc?controls=1&rel=0&showinfo=0&autoplay=0" 
-              title="Mint Studio Interior Design Process" 
-              className="absolute top-0 left-0 w-full h-full border-0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          </div>
-        </div>
-      </section>
-
+      
     
 
       {/* Contact CTA */}
