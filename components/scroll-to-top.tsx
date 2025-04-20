@@ -8,7 +8,12 @@ export default function ScrollToTop() {
 
   useEffect(() => {
     // Scroll to top when the route changes
-    window.scrollTo(0, 0)
+    const scrollAreaViewport = document.querySelector('[data-radix-scroll-area-viewport]');
+    if (scrollAreaViewport) {
+      scrollAreaViewport.scrollTo(0, 0);
+    } else {
+      window.scrollTo(0, 0);
+    }
   }, [pathname])
 
   return null
