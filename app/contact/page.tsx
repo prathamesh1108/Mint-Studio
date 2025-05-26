@@ -59,14 +59,14 @@ export default function Contact() {
                   <Mail className="w-5 h-5 mt-1 mr-3 text-neutral-700" />
                   <div>
                     <h3 className="font-medium">Email</h3>
-                    <p className="text-neutral-600">hello@amulyaartistry.com</p>
+                    <p className="text-neutral-600">amulyaartistry@gmail.com</p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <Phone className="w-5 h-5 mt-1 mr-3 text-neutral-700" />
                   <div>
                     <h3 className="font-medium">Phone</h3>
-                    <p className="text-neutral-600">+1 (555) 123-4567</p>
+                    <p className="text-neutral-600">+91 8369968096</p>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -74,9 +74,10 @@ export default function Contact() {
                   <div>
                     <h3 className="font-medium">Studio Location</h3>
                     <p className="text-neutral-600">
-                      123 Creative Avenue
+                      Gokul Nagar Near 
+                      <br />Jari Mari Temple Opp
                       <br />
-                      Artsville, CA 90210
+                       Ganesh Medical thane - 400601
                     </p>
                   </div>
                 </div>

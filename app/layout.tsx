@@ -4,6 +4,7 @@ import { Inter } from "next/font/google"
 import "./globals.css"
 import Navbar from "@/components/navbar"
 import ScrollToTop from "@/components/scroll-to-top"
+import Footer from "@/components/footer"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -24,6 +25,7 @@ export default function RootLayout({
         <ScrollToTop />
         <Navbar />
         <main>{children}</main>
+        <Footer/>
       </body>
     </html>
   )

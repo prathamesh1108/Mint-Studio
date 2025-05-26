@@ -12,7 +12,7 @@ export default function Navbar() {
   }
 
   return (
-    <header className="py-4 bg-white/90 sticky top-0 z-50 backdrop-blur-sm">
+    <header className="py-6 bg-[#FEF3E2] sticky top-0 z-50 backdrop-blur-sm">
       <div className="container-custom">
         <div className="flex items-center justify-between">
           <Link href="/" className="text-xl font-bold">

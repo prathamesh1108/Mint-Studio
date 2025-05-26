@@ -4,8 +4,10 @@ import FadeInSection from "@/components/fade-in-section"
 
 export default function Home() {
   return (
+   
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
+      <FadeInSection>
       <section className="relative h-[80vh] w-full">
         <Image
           src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=1920&auto=format&fit=crop"
@@ -24,9 +26,10 @@ export default function Home() {
           </Link>
         </div>
       </section>
+      </FadeInSection>
 
       {/* About Section */}
-      <FadeInSection delay={0.2}>
+      <FadeInSection delay={0.3}>
         <section className="py-16 bg-white">
           <div className="container-custom">
             <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -198,30 +201,8 @@ export default function Home() {
         </section>
       </FadeInSection>
 
-      {/* Footer */}
-      <footer className="py-8 bg-white border-t border-neutral-200">
-        <div className="container-custom">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-4 md:mb-0">
-              <Link href="/" className="font-bold text-lg">
-                Mint Studio
-              </Link>
-              <p className="text-neutral-600 text-sm mt-1">© {new Date().getFullYear()} All Rights Reserved</p>
-            </div>
-            <div className="flex space-x-6">
-              <Link href="/portfolio" className="text-neutral-600 hover:text-neutral-900">
-                Portfolio
-              </Link>
-              <Link href="/services" className="text-neutral-600 hover:text-neutral-900">
-                Services
-              </Link>
-              <Link href="/contact" className="text-neutral-600 hover:text-neutral-900">
-                Contact
-              </Link>
-            </div>
-          </div>
-        </div>
-      </footer>
+  
+    
     </div>
   )
 }
