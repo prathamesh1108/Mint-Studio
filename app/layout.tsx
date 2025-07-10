@@ -5,6 +5,7 @@ import "./globals.css"
 import Navbar from "@/components/navbar"
 import ScrollToTop from "@/components/scroll-to-top"
 import Footer from "@/components/footer"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -24,7 +25,9 @@ export default function RootLayout({
       <body className={inter.className}>
         <ScrollToTop />
         <Navbar />
-        <main>{children}</main>
+        <main>{children}
+          <SpeedInsights />
+        </main>
         <Footer/>
       </body>
     </html>
