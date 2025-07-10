@@ -14,7 +14,7 @@ export default function Contact() {
     message: "",
   })
 
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  // const [isSubmitting, setIsSubmitting] = useState(false) // Removed as not needed for mailto
   const [submitMessage, setSubmitMessage] = useState("")
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -23,20 +23,20 @@ export default function Contact() {
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+    e.preventDefault();
+    const { name, email, subject, message } = formData;
+    const recipient = "amulyaartistry@gmail.com";
+    const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)}`;
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false)
-      setSubmitMessage("Thank you for your message! We'll get back to you soon.")
-      setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-      })
-    }, 1500)
+    window.location.href = mailtoLink;
+
+    setSubmitMessage("Your email client should open shortly. Thank you!");
+    setFormData({
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    });
   }
 
   return (
@@ -160,14 +160,11 @@ export default function Contact() {
                   ></textarea>
                 </div>
 
-                <button type="submit" disabled={isSubmitting} className="btn btn-primary flex items-center">
-                  {isSubmitting ? (
-                    "Sending..."
-                  ) : (
+                <button type="submit" className="btn btn-primary flex items-center">
                     <>
                       Send Message <Send className="w-4 h-4 ml-2" />
                     </>
-                  )}
+                  
                 </button>
 
                 {submitMessage && <div className="mt-4 p-4 bg-green-50 text-green-800 rounded-md">{submitMessage}</div>}
