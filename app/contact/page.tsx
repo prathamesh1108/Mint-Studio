@@ -14,7 +14,7 @@ export default function Contact() {
     message: "",
   })
 
-  // const [isSubmitting, setIsSubmitting] = useState(false) // Removed as not needed for mailto
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitMessage, setSubmitMessage] = useState("")
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -24,19 +24,37 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const { name, email, subject, message } = formData;
-    const recipient = "amulyaartistry@gmail.com";
-    const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)}`;
+    setIsSubmitting(true);
+    setSubmitMessage('');
 
-    window.location.href = mailtoLink;
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-    setSubmitMessage("Your email client should open shortly. Thank you!");
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    });
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitMessage(data.message || 'Email sent successfully!');
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        setSubmitMessage(data.message || 'Failed to send email. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitMessage('An error occurred. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -66,7 +84,7 @@ export default function Contact() {
                   <Phone className="w-5 h-5 mt-1 mr-3 text-neutral-700" />
                   <div>
                     <h3 className="font-medium">Phone</h3>
-                    <p className="text-neutral-600">+91 8369968096</p>
+                    <p className="text-neutral-600">+91 7039651228</p>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -160,14 +178,23 @@ export default function Contact() {
                   ></textarea>
                 </div>
 
-                <button type="submit" className="btn btn-primary flex items-center">
+                <button type="submit" className="btn btn-primary flex items-center" disabled={isSubmitting}>
+                  {isSubmitting ? (
+                    <>
+                      Sending... <Send className="w-4 h-4 ml-2 animate-pulse" />
+                    </>
+                  ) : (
                     <>
                       Send Message <Send className="w-4 h-4 ml-2" />
                     </>
-                  
+                  )}
                 </button>
 
-                {submitMessage && <div className="mt-4 p-4 bg-green-50 text-green-800 rounded-md">{submitMessage}</div>}
+                {submitMessage && (
+                  <div className={`mt-4 p-4 rounded-md ${submitMessage.includes('successfully') ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'}`}>
+                    {submitMessage}
+                  </div>
+                )}
               </form>
             </div>
           </div>

@@ -23,12 +23,12 @@ function getPortfolioProjects() {
       id: 2,
       title: "Dosti Oak",
       images: [
-        "/images/Dosti Oak/1.png",
-        "/images/Dosti Oak/2.png",
-        "/images/Dosti Oak/3.png",
-        "/images/Dosti Oak/4.png",
-        "/images/Dosti Oak/5.png",  
-        "/images/Dosti Oak/6.png",
+        "/images/Dosti Oak/1.jpg",
+        "/images/Dosti Oak/2.jpg",
+        "/images/Dosti Oak/3.jpg",
+        "/images/Dosti Oak/4.jpg",
+        "/images/Dosti Oak/5.jpg",  
+        "/images/Dosti Oak/6.jpg",
         "/images/Dosti Oak/7.jpg"
       ]
     },
