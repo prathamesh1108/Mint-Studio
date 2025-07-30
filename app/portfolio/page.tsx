@@ -34,7 +34,7 @@ function getPortfolioProjects() {
     },
     {
       id: 3,
-      title: "Hiranandani Estate (woodpark)",
+      title: "Hiranandani Estate (Woodpark)",
       images: [
         "/images/Hiranandani Estate (woodpark)/1.jpg",
         "/images/Hiranandani Estate (woodpark)/2.jpg",
