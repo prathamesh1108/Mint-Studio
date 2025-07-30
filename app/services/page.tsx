@@ -58,7 +58,7 @@ export default function Services() {
         "Seasonal and event-based styling",
         "Personalized finishing touches",
       ],
-      imagePath: "/images/Dosti Oak/1.PNG",
+      imagePath: "/images/Dosti Oak/1.JPG",
     },
     {
       id: 5,

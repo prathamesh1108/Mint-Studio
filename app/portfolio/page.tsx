@@ -108,4 +108,3 @@ export default function Portfolio() {
 }
 
 // No need for fs/path or Project interface since data is static
-
