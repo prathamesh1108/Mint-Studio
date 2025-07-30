@@ -16,7 +16,7 @@ export default function Services() {
         "Color palette and mood board creation",
         "Project management from concept to completion",
       ],
-      imagePath: "/images/Hiranandani Estate (woodpark)/1.JPG",
+      imagePath: "/images/Hiranandani Estate (woodpark)/1.jpg",
     },
     {
       id: 2,
@@ -30,7 +30,7 @@ export default function Services() {
         "Lighting and acoustic solutions",
         "On-site coordination and styling",
       ],
-      imagePath: "/images/Aum Enterprises/1.JPG",
+      imagePath: "/images/Aum Enterprises/1.jpg",
     },
     {
       id: 3,
@@ -44,7 +44,7 @@ export default function Services() {
         "Budget planning and timeline management",
         "Quality checks and final walkthroughs",
       ],
-      imagePath: "/images/ongoing/3.JPG",
+      imagePath: "/images/ongoing/3.jpg",
     },
     {
       id: 4,
@@ -58,7 +58,7 @@ export default function Services() {
         "Seasonal and event-based styling",
         "Personalized finishing touches",
       ],
-      imagePath: "/images/Dosti Oak/1.JPG",
+      imagePath: "/images/Dosti Oak/1.jpg",
     },
     {
       id: 5,
@@ -72,7 +72,7 @@ export default function Services() {
         "Procurement and delivery coordination",
         "Installation and styling support",
       ],
-      imagePath: "/images/Aum Enterprises/2.JPG",
+      imagePath: "/images/Aum Enterprises/2.jpg",
     },
   ]
 
