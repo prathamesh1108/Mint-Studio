@@ -1,6 +1,13 @@
 import Image from "next/image"
 import Link from "next/link"
 import FadeInSection from "@/components/fade-in-section"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Services | Mint Studio",
+  description: "Discover the range of interior design services offered by Mint Studio, including residential, commercial, and renovation consulting.",
+  keywords: ["interior design services", "residential design", "commercial design", "renovation consulting", "space planning", "Mint Studio"],
+};
 
 export default function Services() {
   const services = [
@@ -16,7 +23,7 @@ export default function Services() {
         "Color palette and mood board creation",
         "Project management from concept to completion",
       ],
-      imagePath: "/images/Hiranandani Estate (woodpark)/1.jpg",
+      imagePath: "/images/hiranandani-estate-woodpark/1.jpg",
     },
     {
       id: 2,
@@ -30,7 +37,7 @@ export default function Services() {
         "Lighting and acoustic solutions",
         "On-site coordination and styling",
       ],
-      imagePath: "/images/Aum Enterprises/1.jpg",
+      imagePath: "/images/aum-enterprises/1.jpg",
     },
     {
       id: 3,
@@ -58,7 +65,7 @@ export default function Services() {
         "Seasonal and event-based styling",
         "Personalized finishing touches",
       ],
-      imagePath: "/images/Dosti Oak/1.jpg",
+      imagePath: "/images/dosti-oak/1.jpg",
     },
     {
       id: 5,
@@ -72,7 +79,7 @@ export default function Services() {
         "Procurement and delivery coordination",
         "Installation and styling support",
       ],
-      imagePath: "/images/Aum Enterprises/2.jpg",
+      imagePath: "/images/aum-enterprises/2.jpg",
     },
   ]
 

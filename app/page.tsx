@@ -1,6 +1,13 @@
 import Image from "next/image"
 import Link from "next/link"
 import FadeInSection from "@/components/fade-in-section"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Mint Studio - Transforming Spaces into Extraordinary Experiences",
+  description: "Welcome to Mint Studio, where we blend creativity with functionality to create inspiring interior designs. Transform your space with our expert designers.",
+  keywords: ["interior design", "home decor", "renovation", "commercial design", "residential design", "Mint Studio"],
+};
 
 export default function Home() {
   return (

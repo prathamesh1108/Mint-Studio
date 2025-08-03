@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { Mail, Phone, MapPin, Send } from "lucide-react"
 import FadeInSection from "@/components/fade-in-section"

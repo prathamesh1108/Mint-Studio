@@ -10,9 +10,13 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Amulya Artistry",
+  title: {
+    default: "Amulya Artistry",
+    template: `%s | Amulya Artistry`,
+  },
   description: "Amulya Artistry - Art and Design Studio",
-    generator: 'v0.dev'
+  keywords: ["art", "design", "studio", "Amulya Artistry", "paintings", "crafts"],
+  generator: 'v0.dev'
 }
 
 export default function RootLayout({

@@ -1,6 +1,13 @@
 import Image from "next/image"
 import Link from "next/link"
 import FadeInSection from "@/components/fade-in-section"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Portfolio | Mint Studio",
+  description: "Explore the portfolio of Mint Studio, showcasing a diverse collection of our best work.",
+  keywords: ["interior design", "portfolio", "Mint Studio", "projects", "home decor"],
+};
 
 // Helper to statically generate projects list at build time
 function getPortfolioProjects() {
@@ -10,38 +17,38 @@ function getPortfolioProjects() {
       id: 1,
       title: "Aum Enterprises",
       images: [
-        "/images/Aum Enterprises/1.jpg",
-        "/images/Aum Enterprises/2.jpg",
-        "/images/Aum Enterprises/3.jpg",
-        "/images/Aum Enterprises/4.jpg",
-        "/images/Aum Enterprises/5.jpg",
-        "/images/Aum Enterprises/6.jpg",
-        "/images/Aum Enterprises/7.jpg"
+        "/images/aum-enterprises/1.jpg",
+        "/images/aum-enterprises/2.jpg",
+        "/images/aum-enterprises/3.jpg",
+        "/images/aum-enterprises/4.jpg",
+        "/images/aum-enterprises/5.jpg",
+        "/images/aum-enterprises/6.jpg",
+        "/images/aum-enterprises/7.jpg"
       ]
     },
     {
       id: 2,
       title: "Dosti Oak",
       images: [
-        "/images/Dosti Oak/1.jpg",
-        "/images/Dosti Oak/2.jpg",
-        "/images/Dosti Oak/3.jpg",
-        "/images/Dosti Oak/4.jpg",
-        "/images/Dosti Oak/5.jpg",  
-        "/images/Dosti Oak/6.jpg",
-        "/images/Dosti Oak/7.jpg"
+        "/images/dosti-oak/1.jpg",
+        "/images/dosti-oak/2.jpg",
+        "/images/dosti-oak/3.jpg",
+        "/images/dosti-oak/4.jpg",
+        "/images/dosti-oak/5.jpg",  
+        "/images/dosti-oak/6.jpg",
+        "/images/dosti-oak/7.jpg"
       ]
     },
     {
       id: 3,
       title: "Hiranandani Estate (Woodpark)",
       images: [
-        "/images/Hiranandani Estate (woodpark)/1.jpg",
-        "/images/Hiranandani Estate (woodpark)/2.jpg",
-        "/images/Hiranandani Estate (woodpark)/3.jpg",
-        "/images/Hiranandani Estate (woodpark)/4.jpg",
-        "/images/Hiranandani Estate (woodpark)/5.jpg",
-        "/images/Hiranandani Estate (woodpark)/6.jpg"
+        "/images/hiranandani-estate-woodpark/1.jpg",
+        "/images/hiranandani-estate-woodpark/2.jpg",
+        "/images/hiranandani-estate-woodpark/3.jpg",
+        "/images/hiranandani-estate-woodpark/4.jpg",
+        "/images/hiranandani-estate-woodpark/5.jpg",
+        "/images/hiranandani-estate-woodpark/6.jpg"
       ]
     },
     {
@@ -81,10 +88,10 @@ export default function Portfolio() {
                   <div key={img} className="relative h-[250px] w-full overflow-hidden rounded-lg group">
                     <Image
                       src={img}
-                      alt={`${project.title} ${i+1}`}
+                      alt={`${project.title} ${i + 1}`}
                       fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      loading="lazy"
+                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+                      priority={i < 3}
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
