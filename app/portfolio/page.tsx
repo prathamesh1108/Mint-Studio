@@ -68,10 +68,9 @@ function getPortfolioProjects() {
 export default function Portfolio() {
   const projects = getPortfolioProjects()
   return (
-    <FadeInSection>
-      <div className="py-16">
+    <div className="py-16">
         <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center mb-20">
+          <div className="max-w-3xl mx-auto text-center mb-20 fade-in-element">
             <h1 className="mb-4">Our Portfolio</h1>
             <p className="text-lg text-neutral-600">
               Explore our diverse collection of projects. Each section below is a project folder, and all images inside are displayed.
@@ -85,13 +84,13 @@ export default function Portfolio() {
               <h2 className="text-2xl font-semibold mb-10 mt-10 text-center">{project.title}</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {project.images.map((img, i) => (
-                  <div key={img} className="relative h-[250px] w-full overflow-hidden rounded-lg group">
+                  <div key={img} className="relative h-[250px] w-full overflow-hidden rounded-lg group fade-in-element">
                     <Image
                       src={img}
-                      alt={`${project.title} ${i + 1}`}
+                      alt={`${project.title} ${i+1}`}
                       fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
-                      priority={i < 3}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      loading="lazy"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
@@ -110,7 +109,6 @@ export default function Portfolio() {
           </div>
         </div>
       </div>
-    </FadeInSection>
   )
 }
 
