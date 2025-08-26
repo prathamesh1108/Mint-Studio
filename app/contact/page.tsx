@@ -4,6 +4,7 @@ import type React from "react"
 import { useState } from "react"
 import { Mail, Phone, MapPin, Send } from "lucide-react"
 import FadeInSection from "@/components/fade-in-section"
+import emailjs from '@emailjs/browser'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -27,18 +28,35 @@ export default function Contact() {
     setSubmitMessage('');
 
     try {
-      const response = await fetch('/api/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      // EmailJS configuration
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
-      const data = await response.json();
+      // Check if EmailJS is properly configured
+      if (!serviceId || !templateId || !publicKey) {
+        setSubmitMessage('Email service is not properly configured. Please contact us directly at amulyaartistry@gmail.com');
+        return;
+      }
 
-      if (response.ok) {
-        setSubmitMessage(data.message || 'Email sent successfully!');
+      // Template parameters for EmailJS
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        to_name: 'Amulya Artistry',
+      };
+
+      const result = await emailjs.send(
+        serviceId,
+        templateId,
+        templateParams,
+        publicKey
+      );
+
+      if (result.status === 200) {
+        setSubmitMessage('Thank you! Your message has been sent successfully. We\'ll get back to you soon.');
         setFormData({
           name: "",
           email: "",
@@ -46,11 +64,11 @@ export default function Contact() {
           message: "",
         });
       } else {
-        setSubmitMessage(data.message || 'Failed to send email. Please try again.');
+        setSubmitMessage('Failed to send message. Please try again or contact us directly at amulyaartistry@gmail.com');
       }
     } catch (error) {
-      console.error('Error submitting form:', error);
-      setSubmitMessage('An error occurred. Please try again later.');
+      console.error('EmailJS Error:', error);
+      setSubmitMessage('An error occurred while sending your message. Please try again later or contact us directly at amulyaartistry@gmail.com');
     } finally {
       setIsSubmitting(false);
     }
@@ -91,10 +109,10 @@ export default function Contact() {
                   <div>
                     <h3 className="font-medium">Studio Location</h3>
                     <p className="text-neutral-600">
-                      Gokul Nagar Near 
+                      Gokul Nagar Near
                       <br />Jari Mari Temple Opp
                       <br />
-                       Ganesh Medical thane - 400601
+                      Ganesh Medical thane - 400601
                     </p>
                   </div>
                 </div>
